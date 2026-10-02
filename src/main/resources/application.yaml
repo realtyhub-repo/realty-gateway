@@ -1,3 +1,32 @@
 spring:
   application:
     name: gateway
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: auth-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/auth/**
+
+            - id: user-service
+              uri: http://localhost:8082
+              predicates:
+                - Path=/users/**,/oficinas/**,/agentes/**
+
+            - id: property-service
+              uri: http://localhost:8083
+              predicates:
+                - Path=/propiedades/**
+
+            - id: lead-service
+              uri: http://localhost:8084
+              predicates:
+                - Path=/leads/**
+
+
+auth:
+  jwks-url: http://localhost:8081/.well-known/jwks.json
