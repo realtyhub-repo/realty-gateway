@@ -30,3 +30,6 @@ spring:
 
 auth:
   jwks-url: http://localhost:8081/.well-known/jwks.json
+
+server:
+  port: 8080
