@@ -32,6 +32,11 @@ spring:
               predicates:
                 - Path=/visitas/**
 
+            - id: contract-service
+              uri: http://localhost:8086
+              predicates:
+                - Path=/contratos/**
+
 auth:
   jwks-url: http://localhost:8081/.well-known/jwks.json
 
