@@ -37,6 +37,12 @@ spring:
               predicates:
                 - Path=/contratos/**
 
+            - id: commission-service
+              uri: http://localhost:8087
+              predicates:
+                - Path=/comisiones/**
+
+
 auth:
   jwks-url: http://localhost:8081/.well-known/jwks.json
 
