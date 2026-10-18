@@ -67,7 +67,7 @@ class CorsConfigTest {
     void corsWebFilter_headerNoPermitidoEnPreflight_rechazaConForbidden() {
         MockServerWebExchange exchange = MockServerWebExchange.from(
                 MockServerHttpRequest.options("http://localhost:8080/propiedades")
-                        .header(HttpHeaders.ORIGIN, "https://app.realty-hub.site"/)
+                        .header(HttpHeaders.ORIGIN, "https://app.realty-hub.site/")
                         .header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, HttpMethod.GET.name())
                         .header(HttpHeaders.ACCESS_CONTROL_REQUEST_HEADERS, "X-User-Role"));
 
