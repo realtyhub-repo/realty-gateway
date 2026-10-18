@@ -27,10 +27,11 @@ class CorsConfigTest {
 
     private MockServerWebExchange preflightDesde(String origen) {
         return MockServerWebExchange.from(
-                MockServerHttpRequest.options("/propiedades")
+                MockServerHttpRequest.options("http://localhost:8080/propiedades")
                         .header(HttpHeaders.ORIGIN, origen)
                         .header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, HttpMethod.GET.name()));
     }
+
 
     @ParameterizedTest(name = "origen {0} permitido")
     @ValueSource(strings = {
@@ -65,8 +66,8 @@ class CorsConfigTest {
     @Test
     void corsWebFilter_headerNoPermitidoEnPreflight_rechazaConForbidden() {
         MockServerWebExchange exchange = MockServerWebExchange.from(
-                MockServerHttpRequest.options("/propiedades")
-                        .header(HttpHeaders.ORIGIN, "https://app.realty-hub.site")
+                MockServerHttpRequest.options("http://localhost:8080/propiedades")
+                        .header(HttpHeaders.ORIGIN, "https://app.realty-hub.site"/)
                         .header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, HttpMethod.GET.name())
                         .header(HttpHeaders.ACCESS_CONTROL_REQUEST_HEADERS, "X-User-Role"));
 
